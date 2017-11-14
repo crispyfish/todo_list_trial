@@ -1,0 +1,12 @@
+      <div class= "modal-header">
+        <h2 class= "modal-title"><%= @task.name %></h5>
+      </div>
+
+      <div class= "modal-body">
+        <h4>Due_date: <b><%= @task.due_date %></b></h4>
+        <p><%= simple_format(@task.note) %></p>
+      </div>
+
+      <div class= "modal-footer">
+        <%= link_to 'Back to index', tasks_path %>
+      </div>

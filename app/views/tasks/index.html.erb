@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Task Completed</td>
+      <td>Task_to_do</td>
+      <td>Detail</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td>
+        <div class="form-check"></div>
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            check it out!
+          </label>  
+      </td>
+      <td><%= link_to task.name %></td>
+      <td><%= link_to 'Show', task_path(task) %></td>
+      <td><%= link_to 'Edit', edit_task_path(task) %></td>
+      <td><%= link_to 'Destroy', task_path(task), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Task', new_task_path, class: "btn btn-default" %>
