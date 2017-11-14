@@ -4,8 +4,6 @@
       <td>Task Completed</td>
       <td>Task_to_do</td>
       <td>Detail</td>
-      <td>Edit</td>
-      <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -20,8 +18,15 @@
       </td>
       <td><%= link_to task.name %></td>
       <td><%= link_to 'Show', task_path(task) %></td>
-      <td><%= link_to 'Edit', edit_task_path(task) %></td>
-      <td><%= link_to 'Destroy', task_path(task), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+      <td>          
+        <div class="actions">
+            <%# 把編輯與刪除按鍵搬到 todos_helper.rb %>
+            <%# 用 helper 的方式來做按鈕的 render %>
+            <%# 可把 todo 物件，當成參數傳入 helper %>
+          <%= task_edit_button(task) %>
+          <%= task_delete_button(task) %>
+        </div>
+      </td>
     </tr>
   <% end %>
 </table>
